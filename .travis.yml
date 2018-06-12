@@ -58,6 +58,8 @@ install:
 before_script:
 - mkdir example_files/metabolights
 - curlftpfs ftp.ebi.ac.uk/pub/databases/metabolights/studies/public example_files/metabolights
+- wget -r -np -nd -A "*.*" ftp://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/$STUDY -P example_files/metabolights/$STUDY
+- wget -r -np -nd -A "*.xml" ftp://ftp.ebi.ac.uk/pub/databases/metabolights/submissionTool/configurations/MetaboLightsConfig20150707/ -P $MTBLS_CONFIG_DIR
 
 script:
 - ls example_files/metabolights
